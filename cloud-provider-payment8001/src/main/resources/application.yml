@@ -15,3 +15,14 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.study.cloud.entities
+
+# eureka config
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true  # 检测服务信息
+    # 作为服务进行注册
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka

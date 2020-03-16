@@ -1,2 +1,13 @@
 server:
   port: 80
+spring:
+  application:
+    name: consumer-order-service
+# eureka config
+eureka:
+  client:
+    fetch-registry: true  # 检测服务信息
+    # 作为服务进行注册
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
