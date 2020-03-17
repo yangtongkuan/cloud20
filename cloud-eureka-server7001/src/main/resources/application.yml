@@ -11,4 +11,4 @@ eureka:
     fetch-registry: false #表示自己就是注册中心，职责维护服务实例,并不区检索服务
     service-url:
 #      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #注册中心地址
-      defaultZone: http://eureka7002.com:7002/eureka/ #注册中心地址
+      defaultZone: http://eureka7002.com:7002/eureka/ #注册中心地址 相互守望 1号注册2号 2号注册1号
