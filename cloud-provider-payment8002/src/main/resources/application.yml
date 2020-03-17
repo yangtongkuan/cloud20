@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 spring:
   application:
     name: cloud-payment-service
@@ -16,6 +16,7 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.study.cloud.entities
 
+
 # eureka config
 eureka:
   client:
@@ -23,5 +24,5 @@ eureka:
     # 作为服务进行注册
     register-with-eureka: true
     service-url:
-#      defaultZone: http://localhost:7001/eureka # 单机模式
+#      defaultZone: http://localhost:7001/eureka  # 单机版的
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka # 集群模式
