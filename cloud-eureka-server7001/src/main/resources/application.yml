@@ -11,12 +11,12 @@ eureka:
     fetch-registry: false #表示自己就是注册中心，职责维护服务实例,并不区检索服务
     service-url:
       # 单机版注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #集群注册中心地址 相互守望 1号注册2号 2号注册1号
-#      defaultZone: http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7002.com:7002/eureka/
 
 ## 关闭自我保护机制config
   # 关闭自我保护机制 保证不可用服务及时清除
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 2000 # 默认为90s 也就是90s 内没有收到心跳则开始自我保护或者剔除服务
+#  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 2000 # 默认为90s 也就是90s 内没有收到心跳则开始自我保护或者剔除服务
