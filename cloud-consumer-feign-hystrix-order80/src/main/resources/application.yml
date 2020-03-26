@@ -9,13 +9,23 @@ eureka:
 spring:
   application:
     name: cloud_hystrix_order_service
-
-## 超时时间设置
+#
+### 超时时间设置
 ribbon:
   # 连接后读取数据时间
-  ReadTimeout:  3000
+  ReadTimeout:  5000
   # 创建连接超时时间
-  ConnectTimeout: 3000
+  ConnectTimeout: 5000
+  SocketTimeout: 5000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
 
 feign:
   hystrix:

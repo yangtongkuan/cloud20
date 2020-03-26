@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -18,11 +19,18 @@ public class OrderController {
     private ConsumerPaymentService consumerPaymentService;
 
     @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-    @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")  //3秒钟以内就是正常的业务逻辑
-    })
+    @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "4000")
+            })
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
         String result = consumerPaymentService.paymentInfo_timeout(id);
+        return result;
+    }
+
+    @GetMapping("/consumer/payment/hystrix/ok/{id}")
+    public String paymentInfo_OK(@PathVariable("id") Integer id) {
+        String result = consumerPaymentService.paymentInfo_OK(id);
         return result;
     }
 
